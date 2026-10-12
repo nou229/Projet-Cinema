@@ -164,3 +164,65 @@ button {
     color: #998a79;
     font-size: 12px;
 }
+#movies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin: 25px 0;
+}
+.movie-card {
+    background-color: rgba(20, 15, 15, 0.92);
+    border: 1px solid #49382c;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+}
+.movie-card:hover {
+    transform: translateY(-6px);
+    border-color: #CC002C;
+}
+.movie-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+.movie-card h3 {
+    color: #e6b566;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.movie-card p {
+    color: #f5e9d5;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.movie-card a {
+    display: inline-block;
+    background-color: #CC002C;
+    color: white;
+    text-decoration: none;
+    padding: 9px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+.movie-card a:hover {
+    background-color: #990021;
+}
+button:hover {
+    background-color: #990021;
+    transform: scale(1.03);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+#message {
+    color: #e6b566;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 16px;
+}
