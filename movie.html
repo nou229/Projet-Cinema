@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Détails du film  - Retro Cinema </title>
+    <link href="page.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+         <a href="index.html" class="logo">
+                <img
+                    src="https://img.magnific.com/vecteurs-libre/fond-cinema-retro_52683-1701.jpg?semt=ais_hybrid&w=740&q=80"
+                    alt="Logo Retro Cinema">
+                <span>Retro Cinema</span>
+            </a>
+              <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="search.html">Rechercher</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Découvrez votre film</h1>
+            <p>Plongez dans l'univers du cinéma et découvrez tous les détails de votre film préféré.</p>
+        </section>
+        <section class="movies-section">
+            <div id="movie-container">
+                <p id="movie-message">Chargement du film...</p>
+                <div id="movie-details">
+                    <h2 id="movie-title"></h2>
+                    <div class="movie-content">
+                        <div class="movie-poster">
+                            <img id="movie-poster"
+                                src=""
+                                alt="Poster du film"></div>
+                        <div class="movie-info">
+                            <h3>Résumé</h3>
+                            <p id="movie-plot"></p>
+                            <h3>Genre</h3>
+                            <p id="movie-genre"></p>
+                            <h3>Acteurs</h3>
+                            <p id="movie-actors"></p>
+                            <h3>Notes du film</h3>
+                            <p id="movie-ratings"></p>
+                            <h3>Sortie en DVD</h3>
+                            <p id="movie-dvd"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <a href="search.html" id="back-to-search">
+ Retour à la recherche
+</a>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>🎞️ Retro Cinema</h2>
+            <p>Le charme du cinéma, à l'ancienne.</p>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="search.html">Rechercher un film</a>
+            </div>
+            <p class="footer-credit">
+                Les informations des films sont fournies par OMDb API.
+            </p>
+        </div>
+    </footer>
+    <script src="movie.js"></script>
+</body>
+</html>

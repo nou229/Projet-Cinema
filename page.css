@@ -317,3 +317,18 @@ button:disabled {
     box-shadow: 0 0 18px rgba(204, 0, 44, 0.4);
     transform: translateY(-6px);
 }
+#back-to-search {
+    display: block;
+    width: fit-content;
+    margin: 30px auto;
+    padding: 12px 22px;
+    background-color: #CC002C;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+}
+
+#back-to-search:hover {
+    background-color: #990021;
+}
