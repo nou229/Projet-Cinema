@@ -1,13 +1,16 @@
+//récupérer les éléments HTML
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
 const searchmessage = document.getElementById("search-message");
 const moviescontainer = document.getElementById("movies-container");
 let page = 1;
 let totalResults = 0;
+// récupérer les informations détaillées d'un film 
 async function getMovie(titre) {
     const response = await fetch(
         `https://www.omdbapi.com/?apikey=43d7f800&t=${encodeURIComponent(titre)}&plot=short`);
     return await response.json();}
+    // créer et afficher les cartes
 function afficherFilm(film) {
     const card = document.createElement("article");
     card.classList.add("movie-card");
@@ -21,6 +24,7 @@ function afficherFilm(film) {
     year.textContent = "Année : " + film.Year;
     const resume = document.createElement("p");
     resume.textContent = film.Plot;
+    //ajouter les éléments à la carte
     card.appendChild(poster);
     card.appendChild(title);
     card.appendChild(year);
@@ -29,11 +33,12 @@ function afficherFilm(film) {
         window.location.href =
             "movie.html?title=" + encodeURIComponent(film.Title); });
     moviescontainer.appendChild(card);}
+//rechercher les films dans l'API OMDb et afficher les résultats
 async function chargerFilms() {
     const search = searchInput.value.trim();
     Button.disabled = true;
     searchmessage.textContent = "Chargement des films...";
-    try {
+    try {//envoyer une requête à l'API pour rechercher les films
         const response = await fetch(
             `https://www.omdbapi.com/?apikey=43d7f800&s=${encodeURIComponent(search)}&type=movie&page=${page}`);
         const data = await response.json();
@@ -50,7 +55,7 @@ async function chargerFilms() {
             const details = await getMovie(film.Title);
             if (details.Response === "True") {
                 afficherFilm(details);} }
-        searchmessage.textContent =
+        searchmessage.textContent = //afficher le nombre de films affichés
             "Films affichés : " + moviescontainer.children.length;
         if (moviescontainer.children.length >= totalResults) {
             Button.hidden = true;
@@ -63,7 +68,7 @@ async function chargerFilms() {
             page--;} }
              finally {Button.disabled = false;}
 }
-async function showmovies() {
+async function showmovies() {//lancer une nouvelle recherche
     const search = searchInput.value.trim();
     moviescontainer.innerHTML = "";
     page = 1;
@@ -75,18 +80,15 @@ async function showmovies() {
     }
     await chargerFilms();
 }
-async function chargerplus() {
+async function chargerplus() {//charger la page suivante de résultats
     page++;
     await chargerFilms();
 }
-const Button = document.createElement("button");
+const Button = document.createElement("button");//créer le bouton "Afficher plus"
 Button.textContent = "Afficher plus";
 Button.hidden = true;
 moviescontainer.parentElement.appendChild(Button);
 Button.addEventListener("click", chargerplus);
-searchButton.addEventListener("click", showmovies);
-searchInput.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        showmovies();
-    }
-});
+//recherche dans le temps reel 
+const rechercheTempsReel = _.debounce(showmovies, 400);
+searchInput.addEventListener("input", rechercheTempsReel);

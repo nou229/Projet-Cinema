@@ -1,3 +1,4 @@
+// récupérer les éléments HTML 
 const titre = document.getElementById("movie-title");
 const poster = document.getElementById("movie-poster");
 const resume = document.getElementById("movie-plot");
@@ -6,10 +7,10 @@ const acteurs = document.getElementById("movie-actors");
 const notes = document.getElementById("movie-ratings");
 const dvd = document.getElementById("movie-dvd");
 const message = document.getElementById("movie-message");
-
+//récupérer les paramètres de l'URL
 const url = new URLSearchParams(window.location.search);
 const nomFilm = url.get("title");
-async function afficherFilm() {
+async function afficherFilm() {//récupère et affiche les détails du film
     if (nomFilm === null) {
         message.textContent = "Aucun film sélectionné.";
         return; }
@@ -17,7 +18,7 @@ async function afficherFilm() {
         message.textContent = "Chargement du film...";
         const reponse = await fetch( `https://www.omdbapi.com/?apikey=43d7f800&t=${encodeURIComponent(nomFilm)}&plot=full` );
         const film = await reponse.json();
-        if (film.Response === "True") {
+        if (film.Response === "True") {//l'affichage
             titre.textContent = film.Title;
             poster.src = film.Poster;
             poster.alt = film.Title;
