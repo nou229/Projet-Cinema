@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Recherche - Retro Cinema</title>
+    <link href="page.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="https://img.magnific.com/vecteurs-libre/fond-cinema-retro_52683-1701.jpg?semt=ais_hybrid&w=740&q=80"
+                     alt="Logo Retro Cinema">
+                <span>Retro Cinema</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Accueil</a>
+                <a href="search.html">Rechercher</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Rechercher un film</h1>
+            <p>Retrouvez vos films préférés avec Retro Cinema.</p>
+        </section>
+        <section class="movies-section">
+            <input type="search" id="search-input" >            
+           <p id="search-message">Saisissez le titre d'un film.</p>
+            <div id="movies-container"></div>
+        </section>
+    </main>
+     <footer class="footer">
+        <div class="footer-content">
+            <h2>🎞️ Retro Cinema</h2>
+            <p>Le charme du cinéma, à l'ancienne.</p>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="search.html">Rechercher un film</a>
+            </div>
+            <p class="footer-credit">
+                Les informations des films sont fournies par OMDb API.
+            </p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="search.js"></script>
+</body>
+</html>
